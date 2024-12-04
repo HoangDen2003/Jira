@@ -1,0 +1,46 @@
+1, Bài toán quản lý dự án và nhiệm vụ (Project & Task Management)
+  - Mô tả: Làm thế nào để tổ chức các dự án, nhiệm vụ, và quy trình làm việc một cách hiệu quả?
+  - Giải quyết:
+    +Cấu trúc dữ liệu cho dự án và nhiệm vụ (task).
+    +Thiết kế quy trình làm việc (workflow) với các trạng thái như Open, In Progress, Done.
+    +Hỗ trợ phân loại nhiệm vụ (bug, feature, improvement).
+
+2, Bài toán theo dõi tiến độ (Progress Tracking)
+  - Mô tả: Làm thế nào để theo dõi tiến độ của các dự án, nhiệm vụ và người dùng?
+  - Solutions:
+    + Biểu đồ Kanban để hiển thị tiến độ.
+    + Biểu đồ Burn-down/Burn-up để theo dõi công việc còn lại trong một sprint.
+    + Tích hợp bộ lọc báo cáo để theo dõi hiệu suất từng nhóm/nhân viên.
+
+3, Bài toán hiệu năng (Performance Optimization)
+  - Mô tả: Làm thế nào để đảm bảo hệ thống hoạt động nhanh, mượt mà khi số lượng người dùng và dữ liệu tăng?
+  - Solutions:
+    + Caching: Sử dụng Redis để giảm tải truy vấn cơ sở dữ liệu.
+    + Phân trang: Hiển thị dữ liệu theo từng trang thay vì tải tất cả cùng một lúc.
+    + Tối ưu hóa truy vấn: Sử dụng các chỉ mục (index) và cơ chế phân vùng cơ sở dữ liệu. (chưa cần thiết)
+
+4, Bài toán tìm kiếm (Search & Query)
+  - Problems: Làm thế nào để tìm kiếm dữ liệu hiệu quả trong hàng nghìn nhiệm vụ?
+  - Solutions: 
+    + Tích hợp công cụ tìm kiếm toàn văn (full-text search) như Elasticsearch hoặc Apache Solr.
+    + Xây dựng bộ lọc mạnh mẽ với các tùy chọn (trạng thái, người thực hiện, thời gian).
+
+5, Bài toán mở rộng (Scalability)
+  - Problems: Làm thế nào để hệ thống đáp ứng được hàng triệu người dùng hoặc nhiệm vụ?
+  - Solutions:
+    + Database Sharding: Chia nhỏ cơ sở dữ liệu.
+    + Load Balancing: Sử dụng nhiều server để phân tải.
+    + Microservices: Chia hệ thống thành các dịch vụ nhỏ để dễ dàng mở rộng.
+
+6, Bài toán quốc tế hóa (Localization & Internationalization)
+  - Problems: Làm thế nào để hỗ trợ nhiều ngôn ngữ và múi giờ khác nhau?
+  - Solutions:
+    + Xây dựng hệ thống hỗ trợ đa ngôn ngữ (i18n).
+
+7, Bài toán bảo mật (Security)
+  - Problems: Làm thế nào để bảo vệ hệ thống khỏi truy cập trái phép và tấn công?
+  - Solutions: 
+    + Authentication: Sử dụng OAuth2
+    + Authorization: Triển khai phân quyền chặt chẽ.
+    + Data Encryption: Mã hóa dữ liệu nhạy cảm (VD: thông tin đăng nhập).
+    + Rate Limiting: Hạn chế số lượng request để tránh tấn công DDoS.

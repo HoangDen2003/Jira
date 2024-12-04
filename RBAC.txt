@@ -1,0 +1,42 @@
+RBAC:
+* Roles: admin (project), member, viewer.
+
+* Permissions:
+  - Administer Project:
+    + Edit access, manage people and permissons.
+    + Configure issue types
+    + Enable project features and delete the project.
+  - Manage issues:
+    + Manage watch list: add or remove people from list.
+    + Delete any attachment: added by anyone
+    + Delete any comment: added by anyone
+    + Delete any issue: 
+    + Delete any worklog entry
+    + Edit any comment: added by anyone
+    + Edit any due date
+    + Edit any worklog entry: added by anyone
+    + Edit reporters: modify the reporter field
+  - Manage sprints:
+    + Create, start and complete
+  - Access development tools: View development information on any "Test Tea," issue, such as commits, reviews, and build information.
+  - Work on project, issues:
+    + Assign any issue: add someone to or modify the assignee field
+    + Delete their own work log entries: delete the work logs added by the user on any "Test Tea," issue.
+    + Edit any issue
+    + Lik any issue
+    + Restrict any issue: change who can view any issue and set default restrictions.
+    + Move any issue: Move any "Test Tea," issue into other projects or service projects on site.
+    + Transition any issue: view any issue and move any issue to a different status.
+  - Create issues
+  - Collaborate on project:
+    + Add attachments.
+    + Add comments
+    + Delete their own attachments: delete only the attachments added by the user.
+    + Delete their own comments: delete only the comments added by the user.
+    + Edit their own comments: Edit only the comments added by the user.
+    + View watches: see the list of people watching any issue.
+
+
+Hybrid approach: RBAC and ABAC
+  - RBAC: quản lý các vai trò lớn
+  - ABAC: quyền soát quyền truy cập chi tiết hơn dựa trên điều kiện
