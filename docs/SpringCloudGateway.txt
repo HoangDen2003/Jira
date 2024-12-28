@@ -1,0 +1,15 @@
+** StripPrefix GatewayFilter Factory:
+app:
+  api-prefix: /api/v1
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: nameRoot
+        uri: https://nameservice
+        predicates:
+        - Path=${app.api-prefix}/identity/**
+        filters:
+        - StripPrefix=2
+ - StripPrefix: cho phép thêm 2 dải tiền tố trước identity

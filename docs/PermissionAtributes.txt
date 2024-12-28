@@ -1,0 +1,10 @@
+- Vai trò trong Jira: Bảng này mở rộng thông tin về quyền bằng cách gắn thêm các điều kiện 
+  hoặc thuộc tính để xác định ai được gán quyền đó. Điều này liên quan đến khái niệm 
+  Conditions và Validators trong Jira.
+- Ví dụ trong Jira:
+  - Quyền chỉ áp dụng cho vai trò cụ thể:
+    + permission_id liên kết với quyền "Edit Issues".
+    + attribute_key = Role và attribute_value = Admin. Điều này nghĩa là chỉ người dùng thuộc vai trò Admin mới có quyền chỉnh sửa nhiệm vụ.
+  - Quyền áp dụng cho nhóm:
+    + permission_id liên kết với quyền "Browse Projects".
+    + attribute_key = Group và attribute_value = Developers. Điều này nghĩa là nhóm Developers mới có quyền xem dự án.

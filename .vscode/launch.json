@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "IdentityServiceApplication",
+      "request": "launch",
+      "mainClass": "com.jira.identity_service.IdentityServiceApplication",
+      "projectName": ""
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-InventoryServiceApplication<inventory-service>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.jira.inventory_service.InventoryServiceApplication",
+      "projectName": "inventory-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-IdentityServiceApplication<identity-service>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.jira.identity_service.IdentityServiceApplication",
+      "projectName": "identity-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /api/v1/permission
+
+spring:
+  application:
+    name: permission-service
+  datasource:
+    url: "jdbc:mysql://localhost:3306/jira_permission_service"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

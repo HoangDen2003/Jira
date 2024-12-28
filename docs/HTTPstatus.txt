@@ -1,0 +1,25 @@
+**HTTP STATUS CODE RULES:
+1XX - Thông tin: Yêu cầu được chấp nhận hoặc quá trình tiếp tục.
+2XX - Thành công: Xác nhận rằng hành động đã hoàn tất thành công hoặc đã được hiểu.
+3XX - Chuyển hướng: Client phải thực hiện hành động bổ sung để hoàn thành yêu cầu.
+4XX - Lỗi từ client chỉ ra rằng yêu cầu không thể hoàn thành hoặc chứa cú pháp sai. 
+      Mã lỗi 4xx sẽ hiện ra khi có lỗi từ phía người dùng, chủ yếu là do không đưa ra một yêu cầu hợp lệ.
+5XX - Lỗi từ phía máy chủ: Cho biết máy chủ không thể hoàn tất yêu cầu được cho là hợp lệ. 
+      Khi duyệt web và bắt gặp các lỗi 5xx, bạn chỉ có thể chờ đợi, vì lúc này lỗi xuất phát từ phía máy 
+      chủ của dịch vụ web, không có cách nào can thiệp để sửa lỗi ngoài việc ngồi chờ bên máy chủ xử lý 
+      xong.
+
+**HTTP**
+Code - Cụm từ chỉ lý do - Giải thích lỗi
+100 - Continue - Yêu cầu đã được hoàn thành và phần còn lại của tiến trình có thể tiếp tục.
+200 - Ok - Phản hồi tiêu chuẩn cho các yêu cầu HTTP thành công.
+201 - Created - Khi các trang mới được tạo bởi dữ liệu biểu mẫu đã đăng hoặc bởi tiến trình CGI, đây là dấu hiệu xác nhận rằng trang đó đã hoạt động.
+202 - Accepted - Yêu cầu của client đã được chấp nhận, nhưng chưa được xử lý.
+400 - Bad Request - Có một lỗi cú pháp trong yêu cầu và yêu cầu bị từ chối.
+401 - Unauthorized - Header yêu cầu không chứa mã xác thực cần thiết và client bị từ chối truy cập.
+403 - Forbidden - Client không được phép xem một file nhất định. Mã trạng thái này cũng được trả lại vào những thời điểm mà máy chủ không muốn có thêm khách truy cập.
+404 - Not Found - Các file được yêu cầu không có trên máy chủ. Có thể bởi vì những file này đã bị xóa, hoặc chưa từng tồn tại trước đây. Nguyên nhân thường là do lỗi chính tả trong URL.
+408 - Request Time-out - Máy chủ mất quá nhiều thời gian để xử lý yêu cầu. Lỗi này thường gây ra bởi lưu lượng truy cập mạng cao.
+500 - Internal Server Error - Phản hồi khó chịu thường xảy ra do sự cố trong code Perl, khi chương trình CGI chạy.
+502 - Bad Gateway - Máy chủ cố truy cập đang gửi lại lỗi.
+504 - Gateway Time-out - Cổng đã hết thời gian. Giống như 408 timeout error, nhưng lỗi này xảy ra tại cổng của máy chủ.

@@ -1,0 +1,52 @@
+**ERROR:
+{
+  "status": "error",
+  "message": "User not found",
+  "error_code": "USER_NOT_FOUND",
+  "details": "The user with the provided ID does not exist."
+}
+
+**PAGINATION:
+{
+  "status": "success",
+  "message": "Data retrieved successfully",
+  "data": {
+    "items": [
+      {
+        "id": 1,
+        "name": "Item 1"
+      },
+      {
+        "id": 2,
+        "name": "Item 2"
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "size": 20,
+      "total_items": 50,
+      "total_pages": 3
+    }
+  }
+}
+
+**OTHER:
+{
+  "status": "success",
+  "message": "Operation completed successfully",
+  "data": {
+    "user": {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com"
+    },
+    "preferences": {
+      "theme": "dark",
+      "language": "en"
+    }
+  },
+  "meta": {
+    "request_id": "xyz-123",
+    "timestamp": "2024-12-09T14:30:00Z"
+  }
+}

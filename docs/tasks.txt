@@ -1,0 +1,42 @@
+*ISSUE:
+  - issue_status -> integer (trỏ đến bảng status category)
+
+Authorize for user (SYSTEM ADMIN, MEMBER, VIEWER)
+
+user -> profile
+
+OpenField ()
+
+** 12/12/2024:
+
+- Tạo project:
+  + Nhập name, key (tạo tự động), access(private, limited, open)
+
+- Khi tạo project, người đang đăng nhập sẽ mặc định là lead.
+- Thêm người vào project, set role cho họ. 
+- Tìm người thông qua email, gửi thông báo về email của họ (check email của họ có phải là mail thật không và email
+này đã được đăng ký trong database của mình chưa)
+
+** ISSUES:
+- Add issue vào project, tức là sẽ gọi API của issue trong project-service
+- Get all Issue in project-service ==> ok
+
+** PROJECT:
+- Chỉ thấy được avatar, full name, email và role của người dùng. ==> ok (sửa lại ProfileResponse sau)
+- Cho phép sửa role của người dùng. ==> ok
+- CHo phép lấy tất cả người dùng => ok
+- Xóa người dùng khỏi project. (tức là xóa cả dòng trong bảng project_users) ==> ok
+- Đang gặp lỗi trả về từ identity về project ==> ok
+- Lấy ra project chứa id người dùng. Ở đây là 1 mảng project vì 1 người dùng có thể có nhiều project khác nhau
+
+** ERROR_LOG:
+- Tạo API-GATEWAY (trong yaml)
+- Refactor code trong identity (Chia external và internal)
+- Xử lý pagination trong identity
+
+** NOTICE:
+- Nếu hai lớp trong cùng một service thì có thể lưu cả đối tượng, nếu khác thì chỉ cần lưu mình ID thôi
+
+** PROBLEMS:
+- Nếu thêm role mới cho thành viên trong project thì vấn đề phân quyền như thế nào.
+  VD: default role là system_admin thì set trong code là ROLE_SYSTEM_ADMIN, nếu thêm role mới là dev thì phải làm sao ?

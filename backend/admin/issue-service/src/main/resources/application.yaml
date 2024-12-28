@@ -1,0 +1,17 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /api/v1/issue
+
+spring:
+  application:
+    name: issue-service
+  datasource:
+    url: "jdbc:mysql://localhost:3306/jira_issue_service"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
