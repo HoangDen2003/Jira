@@ -27,6 +27,7 @@ public class User {
     Timestamp created_at;
     Timestamp updated_at;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
+    //    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     GlobalRole global_role;
 }

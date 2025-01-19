@@ -2,7 +2,6 @@ package com.jira.identity_service.dto.request;
 
 import java.sql.Date;
 
-import com.jira.identity_service.entity.GlobalRole;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

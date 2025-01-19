@@ -24,6 +24,7 @@ public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+
     String full_name;
     String avatar_id;
     String phone;

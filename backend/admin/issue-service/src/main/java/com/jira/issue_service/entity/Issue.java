@@ -2,8 +2,9 @@ package com.jira.issue_service.entity;
 
 import java.sql.Timestamp;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,14 +22,17 @@ import lombok.Setter;
 public class Issue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer Id;
+    @Column(name = "id")
+    Integer id;
 
     String pkey;
     String summary;
     String description;
     Integer issue_num;
+
     @Column(name = "project_id")
     Integer projectId;
+
     Integer workflow_id;
     Integer issue_type_id;
     Integer issue_status_id;
@@ -40,10 +44,13 @@ public class Issue {
     Integer security;
     String archived_by;
     String archived;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     Timestamp due_date;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     Timestamp archived_date;
+
     Timestamp created_at;
     Timestamp updated_at;
 }

@@ -1,9 +1,9 @@
 package com.jira.identity_service.repository;
 
-import com.jira.identity_service.entity.ProjectRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.jira.identity_service.entity.ProjectRole;
+
 @Repository
-public interface ProjectRoleRepository extends JpaRepository<ProjectRole, Integer> {
-}
+public interface ProjectRoleRepository extends JpaRepository<ProjectRole, Integer> {}

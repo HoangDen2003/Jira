@@ -1,6 +1,7 @@
 package com.jira.project_service.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 
 @Entity
@@ -14,5 +15,6 @@ public class ProjectType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+
     String name;
 }

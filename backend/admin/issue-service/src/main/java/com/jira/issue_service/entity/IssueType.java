@@ -1,6 +1,7 @@
 package com.jira.issue_service.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -16,8 +17,9 @@ public class IssueType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String name;        // Epic, Bug, Story, ...
-    String style;       // standard type (level 0) or sub-task type (level - 1)
+
+    String name; // Epic, Bug, Story, ...
+    String style; // standard type (level 0) or sub-task type (level - 1)
     String icon_url;
     String description;
     Integer avatar_id;

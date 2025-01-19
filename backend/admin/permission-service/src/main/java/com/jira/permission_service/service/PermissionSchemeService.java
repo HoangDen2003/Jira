@@ -1,21 +1,21 @@
 package com.jira.permission_service.service;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.jira.permission_service.dto.request.PermissionRequest;
 import com.jira.permission_service.dto.response.PermissionResponse;
-import com.jira.permission_service.entity.Permission;
 import com.jira.permission_service.entity.PermissionScheme;
 import com.jira.permission_service.exception.AppException;
 import com.jira.permission_service.exception.ErrorCode;
-import com.jira.permission_service.mapper.PermissionMapper;
 import com.jira.permission_service.mapper.PermissionSchemeMapper;
 import com.jira.permission_service.repository.PermissionSchemeRepository;
+
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -50,7 +50,9 @@ public class PermissionSchemeService {
 
     public List<PermissionResponse> getAllPermissionSchemes() {
         var permissionSchemes = permissionSchemeRepository.findAll().stream().toList();
-        return permissionSchemes.stream().map(permissionSchemeMapper::toPermissionResponse).toList();
+        return permissionSchemes.stream()
+                .map(permissionSchemeMapper::toPermissionResponse)
+                .toList();
     }
 
     public void deletePermissionScheme(Integer id) {

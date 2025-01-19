@@ -1,13 +1,13 @@
 package com.jira.issue_service.dto.request;
 
+import java.sql.Timestamp;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-
-import java.sql.Timestamp;
 
 @Data
 @Builder

@@ -1,9 +1,13 @@
 package com.jira.identity_service.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.jira.identity_service.entity.GlobalRole;
 
 @Repository
-public interface GlobalRoleRepository extends JpaRepository<GlobalRole, Integer> {}
+public interface GlobalRoleRepository extends JpaRepository<GlobalRole, Integer> {
+    Optional<GlobalRole> findByName(String name);
+}

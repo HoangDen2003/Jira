@@ -1,0 +1,74 @@
+<!-- <div class="css-1btht9s">
+  <router-outlet></router-outlet>
+</div> -->
+<!-- portal -->
+<!-- <div class="atlaskit-portal-container" style="display: flex">
+  <div class="atlaskit-portal" style="z-index: 600">
+    <div class="css-1xdxiey"></div>
+  </div>
+  <app-issue-portal></app-issue-portal>
+</div> -->
+
+<!-- đúng -->
+<div
+  data-layout-container="true"
+  tabindex="-1"
+  data-vc="page-layout"
+  class="css-1qfmpu3"
+>
+  <style>
+    #page-body {
+      width: 100vw;
+      max-width: 100%;
+    }
+    #cloneissueprogressform {
+      margin-top: 24px;
+    }
+    [data-testid="Content"] {
+      margin-top: calc(
+        (var(--topNavigationHeight, 0px) + var(--bannerHeight, 0px))
+      ) !important;
+    }
+    #view-projects-content {
+      margin-top: calc(
+        -1 * (var(--topNavigationHeight, 0px) + var(--bannerHeight, 0px))
+      );
+    } /* admin project dir hack */
+  </style>
+  <div
+    data-fullscreen-id="fullscreen.page-container-v2.topnav"
+    class="_1pby1fcb _kqswh2mm _154i1ter"
+    style="
+      --_w6mvmh: 200;
+      --_1vj9tq: var(--bannerHeight, 0px);
+      position: sticky;
+      top: 0px;
+      z-index: 9999;
+    "
+  >
+    <!-- header -->
+    <app-header></app-header>
+  </div>
+  <div class="css-v5kc2j" data-ds--page-layout--slot="left-panel">
+    <style>
+      :root {
+        --leftPanelWidth: 0px;
+      }
+    </style>
+  </div>
+  <!-- class="css-1btht9s": điều hướng projects, filters, ... -->
+  <div class="css-1btht9s" style="width: 100%">
+    <!-- routing  -->
+    <router-outlet></router-outlet>
+    <div id="right-sidebar-panel-wrapper" class="_1e0c1bgi _iu1g1fl4 _1ej2b4wl">
+      <div class="css-1mcevjx" data-ds--page-layout--slot="right-sidebar">
+        <style>
+          :root {
+            --rightSidebarWidth: 0px;
+          }
+        </style>
+        <div class="css-1ipfec9"></div>
+      </div>
+    </div>
+  </div>
+</div>

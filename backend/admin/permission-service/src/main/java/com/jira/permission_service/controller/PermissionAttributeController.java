@@ -1,19 +1,19 @@
 package com.jira.permission_service.controller;
 
+import java.util.List;
+
+import jakarta.validation.Valid;
+
+import org.springframework.web.bind.annotation.*;
+
 import com.jira.permission_service.dto.request.PermissionAttributeRequest;
-import com.jira.permission_service.dto.request.PermissionRequest;
 import com.jira.permission_service.dto.response.ApiResponse;
 import com.jira.permission_service.dto.response.PermissionAttributeResponse;
-import com.jira.permission_service.dto.response.PermissionResponse;
 import com.jira.permission_service.service.PermissionAttributeService;
-import com.jira.permission_service.service.PermissionSchemeService;
-import jakarta.validation.Valid;
+
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -24,7 +24,8 @@ public class PermissionAttributeController {
     PermissionAttributeService permissionAttributeService;
 
     @PostMapping("/create")
-    ApiResponse<PermissionAttributeResponse> createPermissionScheme(@RequestBody @Valid PermissionAttributeRequest permissionAttributeRequest) {
+    ApiResponse<PermissionAttributeResponse> createPermissionScheme(
+            @RequestBody @Valid PermissionAttributeRequest permissionAttributeRequest) {
         return ApiResponse.<PermissionAttributeResponse>builder()
                 .result(permissionAttributeService.createPermissionAttribute(permissionAttributeRequest))
                 .code(200)

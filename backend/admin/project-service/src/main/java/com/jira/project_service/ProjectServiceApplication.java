@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients  // Kích hoạt Feign Client
+@EnableFeignClients // Kích hoạt Feign Client
 public class ProjectServiceApplication {
 
     public static void main(String[] args) {

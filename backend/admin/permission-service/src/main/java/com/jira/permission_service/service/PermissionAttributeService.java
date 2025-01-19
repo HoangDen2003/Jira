@@ -1,24 +1,21 @@
 package com.jira.permission_service.service;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.jira.permission_service.dto.request.PermissionAttributeRequest;
-import com.jira.permission_service.dto.request.PermissionRequest;
 import com.jira.permission_service.dto.response.PermissionAttributeResponse;
-import com.jira.permission_service.dto.response.PermissionResponse;
 import com.jira.permission_service.entity.PermissionAttribute;
-import com.jira.permission_service.entity.PermissionScheme;
 import com.jira.permission_service.exception.AppException;
 import com.jira.permission_service.exception.ErrorCode;
 import com.jira.permission_service.mapper.PermissionAttributeMapper;
-import com.jira.permission_service.mapper.PermissionSchemeMapper;
 import com.jira.permission_service.repository.PermissionAttributeRepository;
-import com.jira.permission_service.repository.PermissionSchemeRepository;
+
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -29,13 +26,16 @@ public class PermissionAttributeService {
     PermissionAttributeRepository permissionAttributeRepository;
     PermissionAttributeMapper permissionAttributeMapper;
 
-    public PermissionAttributeResponse createPermissionAttribute(PermissionAttributeRequest permissionAttributeRequest) {
-        PermissionAttribute permissionAttribute = permissionAttributeMapper.toPermissionAttribute(permissionAttributeRequest);
+    public PermissionAttributeResponse createPermissionAttribute(
+            PermissionAttributeRequest permissionAttributeRequest) {
+        PermissionAttribute permissionAttribute =
+                permissionAttributeMapper.toPermissionAttribute(permissionAttributeRequest);
         permissionAttribute = permissionAttributeRepository.save(permissionAttribute);
         return permissionAttributeMapper.toPermissionAttributeResponse(permissionAttribute);
     }
 
-    public PermissionAttributeResponse updatePermissionAttribute(Integer Id, PermissionAttributeRequest permissionAttributeRequest) {
+    public PermissionAttributeResponse updatePermissionAttribute(
+            Integer Id, PermissionAttributeRequest permissionAttributeRequest) {
         PermissionAttribute permissionAttribute = permissionAttributeRepository
                 .findById(Id)
                 .orElseThrow(() -> new AppException(ErrorCode.UNCATEGORIZED_EXCEPTION));
@@ -54,13 +54,17 @@ public class PermissionAttributeService {
     }
 
     public List<PermissionAttributeResponse> getAllPermissionAttributes() {
-        var permissionAttribute = permissionAttributeRepository.findAll().stream().toList();
-        return permissionAttribute.stream().map(permissionAttributeMapper::toPermissionAttributeResponse).toList();
+        var permissionAttribute =
+                permissionAttributeRepository.findAll().stream().toList();
+        return permissionAttribute.stream()
+                .map(permissionAttributeMapper::toPermissionAttributeResponse)
+                .toList();
     }
 
     public void deletePermissionAttribute(Integer id) {
-        PermissionAttribute permissionAttribute =
-                permissionAttributeRepository.findById(id).orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
+        PermissionAttribute permissionAttribute = permissionAttributeRepository
+                .findById(id)
+                .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
         permissionAttributeRepository.delete(permissionAttribute);
     }
 }

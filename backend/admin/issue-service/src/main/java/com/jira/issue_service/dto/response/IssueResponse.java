@@ -15,6 +15,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class IssueResponse {
+    Integer id;
     String pkey;
     String summary;
     String description;

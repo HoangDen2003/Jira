@@ -2,25 +2,24 @@ package com.jira.project_service.service;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import com.jira.project_service.dto.request.ProjectUserRequest;
-import com.jira.project_service.dto.response.*;
-import com.jira.project_service.entity.ProjectUser;
-import com.jira.project_service.repository.ProjectUserRepository;
-import com.jira.project_service.repository.httpClient.IssueClient;
-import com.jira.project_service.repository.httpClient.UserClient;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.jira.project_service.dto.request.ProjectRequest;
+import com.jira.project_service.dto.request.ProjectUserRequest;
+import com.jira.project_service.dto.response.*;
 import com.jira.project_service.entity.Project;
+import com.jira.project_service.entity.ProjectUser;
 import com.jira.project_service.exception.AppException;
 import com.jira.project_service.exception.ErrorCode;
 import com.jira.project_service.mapper.ProjectMapper;
 import com.jira.project_service.repository.ProjectRepository;
+import com.jira.project_service.repository.ProjectUserRepository;
+import com.jira.project_service.repository.httpClient.IssueClient;
+import com.jira.project_service.repository.httpClient.UserClient;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -88,7 +87,10 @@ public class ProjectService {
     // update project role (change project role)
     public UserResponse updateProjectRole(Integer id, ProjectUserRequest projectUserRequest) {
         ProjectUser projectUser = projectUserRepository.findById(id).orElseThrow();
-        projectUser.setProject_role_id(projectUser.getProject_role_id().equals(projectUserRequest.getRoleId()) ? projectUser.getProject_role_id() : projectUserRequest.getRoleId() );
+        projectUser.setProject_role_id(
+                projectUser.getProject_role_id().equals(projectUserRequest.getRoleId())
+                        ? projectUser.getProject_role_id()
+                        : projectUserRequest.getRoleId());
         projectUser = projectUserRepository.save(projectUser);
         ApiResponse<UserResponse> apiResponse = userClient.getUserById(projectUser.getUserId());
         return apiResponse.getResult();
@@ -113,14 +115,15 @@ public class ProjectService {
     }
 
     // ADD MEMBERS
-//    @PreAuthorize("hasRole('ROLE_SYSTEM_ADMIN')")
+    //    @PreAuthorize("hasRole('ROLE_SYSTEM_ADMIN')")
     public UserResponse addUserToProject(ProjectUserRequest projectUserRequest) {
         // get a user from identity (use useClient)
         ApiResponse<UserResponse> apiResponse = userClient.getUserById(projectUserRequest.getUserId());
         // get a role from identity (use useClient)
         ApiResponse<RoleResponse> apiRoleResponse = userClient.getProjectRole(projectUserRequest.getRoleId());
 
-        Project project = projectRepository.findById(projectUserRequest.getProjectId()).orElseThrow();
+        Project project =
+                projectRepository.findById(projectUserRequest.getProjectId()).orElseThrow();
 
         ProjectUser projectUser = new ProjectUser();
         projectUser.setProject(project);
@@ -132,14 +135,20 @@ public class ProjectService {
         return apiResponse.getResult();
     }
 
-    public ProjectIssueResponse getProject(Integer id) {
-        Project project = projectRepository.findById(id).orElseThrow();
-        ApiResponse<List<IssueResponse>> apiResponse = issueClient.getIssueByProjectId(project.getId());
-        Set<IssueResponse> issueResponses = new HashSet<>(apiResponse.getResult());
-
-        log.info("list size {}", apiResponse.getResult().size());
-
-        return projectMapper.toProjectIssueResponse(project, issueResponses);
+    // TODO: SELECTED AN ISSUE
+    public List<IssueResponse> getIssueById(Integer projectId, Integer issueId) {
+        Project project = projectRepository.findById(projectId).orElseThrow();
+        ApiResponse<IssueResponse> apiResponse = issueClient.getIssueByProjectIdIssueId(project.getId(), issueId);
+        List<IssueResponse> issueResponses = new ArrayList<>();
+        issueResponses.add(apiResponse.getResult());
+        return issueResponses;
     }
 
+    // TODO: SEARCH ISSUES
+    public List<IssueResponse> getIssuesByProjectId(Integer projectId, String text) {
+        log.info("text {}", text);
+        Project project = projectRepository.findById(projectId).orElseThrow();
+        ApiResponse<List<IssueResponse>> apiResponse = issueClient.getIssueByProjectId(project.getId(), text);
+        return apiResponse.getResult();
+    }
 }

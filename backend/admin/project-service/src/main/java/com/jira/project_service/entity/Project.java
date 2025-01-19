@@ -16,7 +16,8 @@ import lombok.*;
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer Id;
+    @Column(name = "id")
+    Integer id;
 
     String pname;
     String url;

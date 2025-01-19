@@ -15,6 +15,7 @@ public class Permission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer Id;
+
     String name;
     String description;
 }

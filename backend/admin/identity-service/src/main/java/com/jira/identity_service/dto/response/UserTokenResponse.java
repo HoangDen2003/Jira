@@ -1,6 +1,7 @@
 package com.jira.identity_service.dto.response;
 
-import com.jira.identity_service.entity.GlobalRole;
+import java.util.Set;
+
 import com.jira.identity_service.entity.InvalidatedToken;
 
 import lombok.AccessLevel;
@@ -9,8 +10,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-
-import java.util.Set;
 
 @Data
 @NoArgsConstructor

@@ -1,10 +1,8 @@
 package com.jira.identity_service.entity;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -26,9 +24,7 @@ import lombok.experimental.FieldDefaults;
 @Table(name = "jira_invalidated_token")
 public class InvalidatedToken {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    String id;
 
-    String token;
-    Timestamp expirationTime;
+    Date expiryTime;
 }

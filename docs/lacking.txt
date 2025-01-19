@@ -1,0 +1,4 @@
+- forgot password
+- send email
+- otp
+- pagination

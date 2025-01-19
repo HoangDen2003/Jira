@@ -1,14 +1,13 @@
 package com.jira.identity_service.dto.response;
 
+import java.util.Set;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-
-import java.sql.Date;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor

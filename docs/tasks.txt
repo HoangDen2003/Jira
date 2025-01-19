@@ -30,13 +30,37 @@ này đã được đăng ký trong database của mình chưa)
 - Lấy ra project chứa id người dùng. Ở đây là 1 mảng project vì 1 người dùng có thể có nhiều project khác nhau
 
 ** ERROR_LOG:
-- Tạo API-GATEWAY (trong yaml)
-- Refactor code trong identity (Chia external và internal)
-- Xử lý pagination trong identity
+BACK-END:
+- Tạo API-GATEWAY (trong yaml) ==> chưa chuyển hết api cần thiết sang cho api-gateway
+- Sửa lỗi trả về
+- Bắt validate login và register
+- Chưa get được các projects thuộc về lead nào
+- Xử lý bear token từ khi các service khác gọi tới, tạm thời đang để public
+FRONT-END:
+- Login:
+  + Truyền body qua nhưng bên backend nhận null => ok
+  + Bắt validate.
+- Register:
+  + Sẽ thêm ô password để match với hệ thống trước.
+- Thiếu: yourwork, projects, filters, ...
+- Cho các component ở thư mục pages vào một module riêng ==> ok
+- Lỗi chưa chuyển hướng được sang boards, lists, ... ==> ok
+- css-1qfmpu3:
+  + css-1btht9s:
+    + sidebar: _kqswh2mm _1pbyg9ti _14c1glyw
+    + main: _1e0c1bgi _iu1g1fl4 _2d3f16n6
+    + div không xác định: id = right-sidebar-panel-wrapper
+- Lỗi header khi vào projects => ok
+- Hiện detail issue ==> ok
+- Thêm issue ==> ok
+- reporter field tạm thời để string, hsau sẽ dùng id để join
+- tạo interface cho mỗi module
 
 ** NOTICE:
 - Nếu hai lớp trong cùng một service thì có thể lưu cả đối tượng, nếu khác thì chỉ cần lưu mình ID thôi
+- Lưu payload ở localstorage và signature ở cookie.
 
 ** PROBLEMS:
 - Nếu thêm role mới cho thành viên trong project thì vấn đề phân quyền như thế nào.
   VD: default role là system_admin thì set trong code là ROLE_SYSTEM_ADMIN, nếu thêm role mới là dev thì phải làm sao ?
+- Grafana: giám sát MYsql online

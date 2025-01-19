@@ -15,5 +15,4 @@ public class SchemePermissionRequest {
     String permissionType;
     String permissionScope;
     String permissionKey;
-
 }

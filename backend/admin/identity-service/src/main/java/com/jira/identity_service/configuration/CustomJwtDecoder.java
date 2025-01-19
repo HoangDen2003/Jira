@@ -1,4 +1,3 @@
 package com.jira.identity_service.configuration;
 
-public class CustomJwtDecoder  {
-}
+public class CustomJwtDecoder {}

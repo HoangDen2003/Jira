@@ -1,10 +1,9 @@
 package com.jira.project_service.dto.response;
 
+import java.sql.Timestamp;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
-import java.sql.Timestamp;
-import java.util.Set;
 
 @Data
 @Builder
@@ -12,6 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class IssueResponse {
+    Integer id;
     String pkey;
     String summary;
     String description;

@@ -1,10 +1,11 @@
 package com.jira.project_service.repository;
 
-import com.jira.project_service.entity.ProjectUser;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import com.jira.project_service.entity.ProjectUser;
 
 @Repository
 public interface ProjectUserRepository extends JpaRepository<ProjectUser, Integer> {

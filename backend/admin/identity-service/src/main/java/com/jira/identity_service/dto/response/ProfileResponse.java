@@ -1,9 +1,9 @@
 package com.jira.identity_service.dto.response;
 
+import java.sql.Date;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
-import java.sql.Date;
 
 @Data
 @NoArgsConstructor

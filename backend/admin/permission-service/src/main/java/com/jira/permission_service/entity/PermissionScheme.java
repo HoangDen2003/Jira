@@ -1,6 +1,7 @@
 package com.jira.permission_service.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 
 @Entity
@@ -14,6 +15,7 @@ public class PermissionScheme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer Id;
+
     String name;
     String description;
 }

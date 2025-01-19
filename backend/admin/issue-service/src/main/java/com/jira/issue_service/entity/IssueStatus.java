@@ -1,6 +1,7 @@
 package com.jira.issue_service.entity;
 
 import jakarta.persistence.*;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -16,7 +17,8 @@ public class IssueStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String name;            // todo(Open, reopened, ...), in progress(building, pending, ...), done(resolved, closed, ...)
+
+    String name; // todo(Open, reopened, ...), in progress(building, pending, ...), done(resolved, closed, ...)
     String icon_url;
     String description;
     String status_category; // todo, in progress, done
